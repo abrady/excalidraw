@@ -101,10 +101,10 @@ export default defineConfig({
         ],
       },
       manifest: {
-        short_name: "Excalidraw",
-        name: "Excalidraw",
+        short_name: "Andro",
+        name: "Andromeda's Edge",
         description:
-          "Excalidraw is a whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.",
+          "Andromeda's Edge is a tool for running tabletop role-playing games online.",
         icons: [
           {
             src: "android-chrome-192x192.png",

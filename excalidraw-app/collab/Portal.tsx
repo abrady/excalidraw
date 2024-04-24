@@ -243,6 +243,24 @@ class Portal {
       this.socket.emit(WS_EVENTS.USER_FOLLOW_CHANGE, payload);
     }
   };
+
+  broadcastUserRoll = (numSides: number, numDice: number) => {
+    if (this.socket?.id) {
+      this.socket.emit("usercmd/rollDice", numSides, numDice);
+    }
+  }
+
+  on(event: string, cb: (...args: any[]) => void) {
+    if (this.socket) {
+      this.socket.on(event, cb);
+    }
+  }
+
+  off(event: string, cb: (...args: any[]) => void) {
+    if (this.socket) {
+      this.socket.off(event, cb);
+    }
+  }
 }
 
 export default Portal;
