@@ -5,19 +5,22 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Stack from "react-bootstrap/Stack";
 import {
     collabAPIAtom,
 } from "./collab/Collab";
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 
 const App = () => {
-    const [collabAPI] = useAtom(collabAPIAtom);
+    const collabAPI = useAtomValue(collabAPIAtom);
     const [roll, setRoll] = useState(0);
 
     useEffect(() => {
         if (!collabAPI) {
+            console.log('collabAPI not ready');
             return;
         }
+        console.log('collabAPI ready');
         collabAPI?.getPortal().on("usercmd/rollDice:result", setRoll);
 
         return () => {
@@ -33,13 +36,15 @@ const App = () => {
     return (
         <Container fluid className="w-100 h-100 p-0">
             <Row className="h-100">
-                <Col xs={2}>
-                    <Row>Sidebar</Row>
-                    <Row className="border border-primary">
-                        <Col>
-                            <Button onClick={onRoll}>Roll</Button>
-                        </Col>
-                        <Col className="w-25 text-primary">{roll}</Col>
+                <Col xs={2} className="border border-primary">
+                    <Row><h2>Sidebar</h2></Row>
+                    <Row className="">
+                        <Stack direction="horizontal" gap={3}>
+                            <div>
+                                <Button onClick={onRoll}>Roll</Button>
+                            </div>
+                            <div className="border border-primary text-primary">{roll}</div>
+                        </Stack>
                     </Row>
                 </Col>
                 <Col>

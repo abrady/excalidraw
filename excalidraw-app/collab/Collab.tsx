@@ -208,6 +208,7 @@ class Collab extends PureComponent<CollabProps, CollabState> {
       getPortal: this.getPortal,
     };
 
+    console.log("setting collabAPI", collabAPI);
     appJotaiStore.set(collabAPIAtom, collabAPI);
 
     if (import.meta.env.MODE === ENV.TEST || import.meta.env.DEV) {
