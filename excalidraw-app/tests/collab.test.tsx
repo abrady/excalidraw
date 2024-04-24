@@ -4,7 +4,7 @@ import {
   updateSceneData,
   waitFor,
 } from "../../packages/excalidraw/tests/test-utils";
-import ExcalidrawApp from "../App";
+import ExcalidrawApp from "../Main";
 import { API } from "../../packages/excalidraw/tests/helpers/api";
 import { createUndoAction } from "../../packages/excalidraw/actions/actionHistory";
 import { syncInvalidIndices } from "../../packages/excalidraw/fractionalIndex";

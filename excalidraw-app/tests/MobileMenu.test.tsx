@@ -1,4 +1,4 @@
-import ExcalidrawApp from "../App";
+import ExcalidrawApp from "../Main";
 import {
   mockBoundingClientRect,
   render,

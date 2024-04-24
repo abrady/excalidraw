@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
  * this file defines pure geometric shapes
  *
@@ -64,29 +65,29 @@ export type Ellipse = {
 
 export type GeometricShape =
   | {
-      type: "line";
-      data: Line;
-    }
+    type: "line";
+    data: Line;
+  }
   | {
-      type: "polygon";
-      data: Polygon;
-    }
+    type: "polygon";
+    data: Polygon;
+  }
   | {
-      type: "curve";
-      data: Curve;
-    }
+    type: "curve";
+    data: Curve;
+  }
   | {
-      type: "ellipse";
-      data: Ellipse;
-    }
+    type: "ellipse";
+    data: Ellipse;
+  }
   | {
-      type: "polyline";
-      data: Polyline;
-    }
+    type: "polyline";
+    data: Polyline;
+  }
   | {
-      type: "polycurve";
-      data: Polycurve;
-    };
+    type: "polycurve";
+    data: Polycurve;
+  };
 
 type RectangularElement =
   | ExcalidrawRectangleElement
@@ -224,13 +225,13 @@ export const getFreedrawShape = (
 
   return isClosed
     ? {
-        type: "polygon",
-        data: close(polyline.flat()) as Polygon,
-      }
+      type: "polygon",
+      data: close(polyline.flat()) as Polygon,
+    }
     : {
-        type: "polyline",
-        data: polyline,
-      };
+      type: "polyline",
+      data: polyline,
+    };
 };
 
 export const getClosedCurveShape = (
@@ -278,7 +279,7 @@ export const getClosedCurveShape = (
   }
 
   const polygonPoints = pointsOnBezierCurves(points, 10, 5).map((p) =>
-    transform(p),
+    transform(p as any),
   );
 
   return {

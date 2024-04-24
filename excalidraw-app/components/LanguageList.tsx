@@ -1,6 +1,6 @@
 import { useSetAtom } from "jotai";
 import React from "react";
-import { appLangCodeAtom } from "../App";
+import { appLangCodeAtom } from "../Main";
 import { useI18n } from "../../packages/excalidraw/i18n";
 import { languages } from "../../packages/excalidraw/i18n";
 

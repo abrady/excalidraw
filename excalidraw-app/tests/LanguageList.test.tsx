@@ -7,7 +7,7 @@ import {
   render,
 } from "../../packages/excalidraw/tests/test-utils";
 
-import ExcalidrawApp from "../App";
+import ExcalidrawApp from "../Main";
 
 describe("Test LanguageList", () => {
   it("rerenders UI on language change", async () => {

@@ -26,6 +26,8 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
+    "bootstrap": "5.3.3",
+    "react-bootstrap": "2.10.2",
     "vite-plugin-html": "3.2.2"
   },
   "prettier": "@excalidraw/prettier-config",
