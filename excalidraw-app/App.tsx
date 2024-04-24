@@ -26,22 +26,23 @@ const App = () => {
     }, [collabAPI, setRoll]);
 
     const onRoll = () => {
+        console.log('onRoll');
         collabAPI?.getPortal().broadcastUserRoll(20, 1)
     };
 
     return (
-        <Container fluid className="d-flex flex-nowrap h-100 p-0">
-            <Row className="h-100 w-100">
-                <Col className="h-100 w-25">
-                    <h1>Sidebar</h1>
+        <Container fluid className="w-100 h-100 p-0">
+            <Row className="h-100">
+                <Col xs={2}>
+                    <Row>Sidebar</Row>
                     <Row className="border border-primary">
-                        <div className="w-25">
+                        <Col>
                             <Button onClick={onRoll}>Roll</Button>
-                        </div>
-                        <div className="w-25 text-primary">{roll}</div>
+                        </Col>
+                        <Col className="w-25 text-primary">{roll}</Col>
                     </Row>
                 </Col>
-                <Col className="h-100">
+                <Col>
                     <ExcalidrawApp />
                 </Col>
             </Row>
