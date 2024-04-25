@@ -244,9 +244,9 @@ class Portal {
     }
   };
 
-  broadcastUserRoll = (numSides: number, numDice: number) => {
+  broadcastUserRoll = (roomId: string, numSides: number, numDice: number) => {
     if (this.socket?.id) {
-      this.socket.emit("usercmd/rollDice", numSides, numDice);
+      this.socket.emit("usercmd/rollDice", roomId, numSides, numDice);
     }
   }
 

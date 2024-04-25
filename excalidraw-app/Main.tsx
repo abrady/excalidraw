@@ -94,9 +94,8 @@ import {
 import { AppMainMenu } from "./components/AppMainMenu";
 import { AppWelcomeScreen } from "./components/AppWelcomeScreen";
 import { AppFooter } from "./components/AppFooter";
-import { atom, Provider, useAtom, useAtomValue } from "jotai";
+import { atom, useAtom, useAtomValue } from "jotai";
 import { useAtomWithInitialValue } from "../packages/excalidraw/jotai";
-import { appJotaiStore } from "./app-jotai";
 
 import "./index.scss";
 import { ResolutionType } from "../packages/excalidraw/utility-types";
@@ -344,7 +343,6 @@ const ExcalidrawWrapper = () => {
   });
 
   useEffect(() => {
-    console.log("main collabAPI", collabAPI);
     if (!excalidrawAPI || (!isCollabDisabled && !collabAPI)) {
       return;
     }
@@ -1110,9 +1108,7 @@ const ExcalidrawWrapper = () => {
 const ExcalidrawApp = () => {
   return (
     <TopErrorBoundary>
-      <Provider unstable_createStore={() => appJotaiStore}>
-        <ExcalidrawWrapper />
-      </Provider>
+      <ExcalidrawWrapper />
     </TopErrorBoundary>
   );
 };

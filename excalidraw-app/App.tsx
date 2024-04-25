@@ -9,18 +9,20 @@ import Stack from "react-bootstrap/Stack";
 import {
     collabAPIAtom,
 } from "./collab/Collab";
-import { useAtomValue } from "jotai";
+import { useAtomValue, Provider } from "jotai";
+import { appJotaiStore } from "./app-jotai";
+import { getCollaborationLinkData } from "./data";
+
 
 const App = () => {
     const collabAPI = useAtomValue(collabAPIAtom);
     const [roll, setRoll] = useState(0);
-
+    const roomLinkData = getCollaborationLinkData(window.location.href);
+    const roomId = roomLinkData?.roomId;
     useEffect(() => {
         if (!collabAPI) {
-            console.log('collabAPI not ready');
             return;
         }
-        console.log('collabAPI ready');
         collabAPI?.getPortal().on("usercmd/rollDice:result", setRoll);
 
         return () => {
@@ -29,29 +31,46 @@ const App = () => {
     }, [collabAPI, setRoll]);
 
     const onRoll = () => {
-        console.log('onRoll');
-        collabAPI?.getPortal().broadcastUserRoll(20, 1)
+        console.log('onRoll', roomId);
+        collabAPI?.getPortal().broadcastUserRoll(roomId!, 20, 1)
     };
 
+    let sidebar;
+    if (collabAPI?.isCollaborating()) {
+        sidebar = (
+            <Stack direction="horizontal" gap={3}>
+                <div>
+                    <Button onClick={onRoll}>Roll</Button>
+                </div>
+                <div className="border border-primary text-primary">{roll}</div>
+            </Stack>
+        );
+    } else {
+        sidebar = <div>Collaboration is not enabled</div>;
+    }
+
     return (
-        <Container fluid className="w-100 h-100 p-0">
-            <Row className="h-100">
-                <Col xs={2} className="border border-primary">
-                    <Row><h2>Sidebar</h2></Row>
-                    <Row className="">
-                        <Stack direction="horizontal" gap={3}>
-                            <div>
-                                <Button onClick={onRoll}>Roll</Button>
-                            </div>
-                            <div className="border border-primary text-primary">{roll}</div>
-                        </Stack>
-                    </Row>
-                </Col>
-                <Col>
-                    <ExcalidrawApp />
-                </Col>
-            </Row>
-        </Container >
+        <Row className="h-100">
+            <Col xs={2} className="border border-primary">
+                <Row><h2>Sidebar</h2></Row>
+                <Row>
+                    {sidebar}
+                </Row>
+            </Col>
+            <Col>
+                <ExcalidrawApp />
+            </Col>
+        </Row>
     );
 };
-export default App;
+
+const Wrapper = () => {
+    return (
+        <Container fluid className="w-100 h-100 p-0">
+            <Provider unstable_createStore={() => appJotaiStore}>
+                <App />
+            </Provider>
+        </Container >
+    );
+}
+export default Wrapper;
