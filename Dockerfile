@@ -8,10 +8,11 @@ RUN yarn --ignore-optional --network-timeout 600000
 ARG NODE_ENV=production
 
 COPY . .
-RUN yarn build:app:docker
+#RUN yarn build:app:docker
 
 FROM nginx:1.21-alpine
-
+RUN ls
+#RUN ls build
 COPY --from=build /opt/node_app/build /usr/share/nginx/html
 
 HEALTHCHECK CMD wget -q -O /dev/null http://localhost || exit 1
