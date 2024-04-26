@@ -27,6 +27,13 @@ How is stuff saved to firebase?
   * can we test prod locally?
   * deploy
 
+Hosting notes:
+
+* a buddy said to use EBS - elastic beanstalk
+* okay, got an instance running with their test app. Some links:
+  * <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs.container.html>
+  * <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express.html>
+
 ## 4/23
 
 * test syncing - works in dev
