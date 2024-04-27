@@ -8,32 +8,42 @@ import Col from "react-bootstrap/Col";
 import Stack from "react-bootstrap/Stack";
 import {
     collabAPIAtom,
+    isOpenAtom,
 } from "./collab/Collab";
 import { useAtomValue, Provider } from "jotai";
 import { appJotaiStore } from "./app-jotai";
+import { useAtomCallback } from "jotai/utils";
 import { getCollaborationLinkData } from "./data";
-
+import Portal from "./collab/Portal";
 
 const App = () => {
     const collabAPI = useAtomValue(collabAPIAtom);
     const [roll, setRoll] = useState(0);
     const roomLinkData = getCollaborationLinkData(window.location.href);
     const roomId = roomLinkData?.roomId;
+    const isOpen = useAtomValue(isOpenAtom);
     useEffect(() => {
-        if (!collabAPI) {
+        if (!collabAPI?.getPortal() || !isOpen) {
             return;
         }
-        collabAPI?.getPortal().on("usercmd/rollDice:result", setRoll);
+        const portal = collabAPI.getPortal();
+
+        portal.on("usercmd/rollDice:result", (data) => {
+            console.log('roll result', data);
+            setRoll(data);
+        });
 
         return () => {
-            collabAPI?.getPortal().off("user:roll", setRoll);
+            portal.off("user:roll", setRoll);
         };
-    }, [collabAPI, setRoll]);
+    }, [collabAPI, isOpen, setRoll]);
 
     const onRoll = () => {
-        console.log('onRoll', roomId);
-        collabAPI?.getPortal().broadcastUserRoll(roomId!, 20, 1)
+        console.log('roll clicked for room', roomId);
+        collabAPI?.getPortal().broadcastUserRoll(roomId!, 20, 1);
+
     };
+
 
     let sidebar;
     if (collabAPI?.isCollaborating()) {
@@ -52,7 +62,7 @@ const App = () => {
     return (
         <Row className="h-100">
             <Col xs={2} className="border border-primary">
-                <Row><h2>Sidebar</h2></Row>
+                <Row><h2>Sidebar2</h2></Row>
                 <Row>
                     {sidebar}
                 </Row>

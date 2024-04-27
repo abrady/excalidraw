@@ -1258,7 +1258,7 @@
   resolved "https://registry.npmjs.org/@excalidraw/eslint-config/-/eslint-config-1.0.3.tgz"
   integrity sha512-GemHNF5Z6ga0BWBSX7GJaNBUchLu6RwTcAB84eX1MeckRNhNasAsPCdelDlFalz27iS4RuYEQh0bPE8SRxJgbQ==
 
-"@excalidraw/excalidraw@*", "@excalidraw/excalidraw@file:C:\\open\\github\\andro\\excalidraw\\packages\\excalidraw":
+"@excalidraw/excalidraw@*", "@excalidraw/excalidraw@file:C:\\open\\Github\\andro3\\excalidraw\\packages\\excalidraw":
   version "0.17.1"
   resolved "file:packages/excalidraw"
   dependencies:
@@ -1326,7 +1326,7 @@
   resolved "https://registry.npmjs.org/@excalidraw/random-username/-/random-username-1.1.0.tgz"
   integrity sha512-nULYsQxkWHnbmHvcs+efMkJ4/9TtvNyFeLyHdeGxW0zHs6P+jYVqcRff9A6Vq9w9JXeDRnRh2VKvTtS19GW2qA==
 
-"@excalidraw/utils@file:C:\\open\\github\\andro\\excalidraw\\packages\\utils":
+"@excalidraw/utils@file:C:\\open\\Github\\andro3\\excalidraw\\packages\\utils":
   version "0.1.2"
   resolved "file:packages/utils"
   dependencies:
@@ -5448,7 +5448,7 @@ events@^3.2.0:
   resolved "https://registry.npmjs.org/events/-/events-3.3.0.tgz"
   integrity sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==
 
-"examples@file:C:\\open\\github\\andro\\excalidraw\\examples\\excalidraw":
+"examples@file:C:\\open\\Github\\andro3\\excalidraw\\examples\\excalidraw":
   version "1.0.0"
   resolved "file:examples/excalidraw"
   dependencies:
@@ -5456,7 +5456,7 @@ events@^3.2.0:
     react "18.2.0"
     react-dom "18.2.0"
 
-"excalidraw-app@file:C:\\open\\github\\andro\\excalidraw\\excalidraw-app":
+"excalidraw-app@file:C:\\open\\Github\\andro3\\excalidraw\\excalidraw-app":
   version "1.0.0"
   resolved "file:excalidraw-app"
   dependencies:
@@ -6556,6 +6556,11 @@ jest-worker@^27.4.5:
     "@types/node" "*"
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
+
+jotai-effect@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/jotai-effect/-/jotai-effect-1.0.0.tgz"
+  integrity sha512-eCgKKG4BACDzuJGYTu0xZRk1C1MEOvbAhC3L8w7YufQ2lSLORwNX/WFnCuZxLFX0sDLkTUeoUzOYaw8wnXY+UQ==
 
 jotai@1.13.1:
   version "1.13.1"
@@ -10161,7 +10166,7 @@ wildcard@^2.0.0:
   resolved "https://registry.npmjs.org/wildcard/-/wildcard-2.0.1.tgz"
   integrity sha512-CC1bOL87PIWSBhDcTrdeLo6eGT7mCFtrg0uIJtqJUFyK+eJnzl8A1niH56uu7KMa5XFrtiV+AQuHO3n7DsHnLQ==
 
-"with-nextjs@file:C:\\open\\github\\andro\\excalidraw\\examples\\excalidraw\\with-nextjs":
+"with-nextjs@file:C:\\open\\Github\\andro3\\excalidraw\\examples\\excalidraw\\with-nextjs":
   version "0.1.0"
   resolved "file:examples/excalidraw/with-nextjs"
   dependencies:
@@ -10170,7 +10175,7 @@ wildcard@^2.0.0:
     react "^18"
     react-dom "^18"
 
-"with-script-in-browser@file:C:\\open\\github\\andro\\excalidraw\\examples\\excalidraw\\with-script-in-browser":
+"with-script-in-browser@file:C:\\open\\Github\\andro3\\excalidraw\\examples\\excalidraw\\with-script-in-browser":
   version "1.0.0"
   resolved "file:examples/excalidraw/with-script-in-browser"
   dependencies:

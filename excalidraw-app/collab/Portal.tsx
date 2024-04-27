@@ -19,6 +19,7 @@ import throttle from "lodash.throttle";
 import { newElementWith } from "../../packages/excalidraw/element/mutateElement";
 import { encryptData } from "../../packages/excalidraw/data/encryption";
 import type { Socket } from "socket.io-client";
+import { atom } from "jotai";
 
 class Portal {
   collab: TCollabClass;
@@ -253,6 +254,8 @@ class Portal {
   on(event: string, cb: (...args: any[]) => void) {
     if (this.socket) {
       this.socket.on(event, cb);
+    } else {
+      console.error("socket not initialized");
     }
   }
 

@@ -88,6 +88,7 @@ import {
 export const collabAPIAtom = atom<CollabAPI | null>(null);
 export const isCollaboratingAtom = atom(false);
 export const isOfflineAtom = atom(false);
+export const isOpenAtom = atom(false);
 
 interface CollabState {
   errorMessage: string | null;
@@ -676,6 +677,7 @@ class Collab extends PureComponent<CollabProps, CollabState> {
         this.fallbackInitializationHandler,
       );
     }
+    console.log("fetchScene", fetchScene, "roomLinkData", roomLinkData);
     if (fetchScene && roomLinkData && this.portal.socket) {
       this.excalidrawAPI.resetScene();
 
@@ -700,9 +702,11 @@ class Collab extends PureComponent<CollabProps, CollabState> {
         console.error(error);
       } finally {
         this.portal.socketInitialized = true;
+        appJotaiStore.set(isOpenAtom, true);
       }
     } else {
       this.portal.socketInitialized = true;
+      appJotaiStore.set(isOpenAtom, true);
     }
     return null;
   };
