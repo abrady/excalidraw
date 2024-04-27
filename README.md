@@ -2,6 +2,7 @@
 # TODOs
 
 * fixup the icons/favicon, other things in vite.config.mts
+* make sure firebase db is secure (<https://console.firebase.google.com/project/andro-6c2db/firestore/databases/-default-/data/~2Froom~2FcpBeGdVlTxrHfeiJwNV3>)
 
 # Code
 
