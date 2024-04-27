@@ -677,7 +677,7 @@ class Collab extends PureComponent<CollabProps, CollabState> {
         this.fallbackInitializationHandler,
       );
     }
-    console.log("fetchScene", fetchScene, "roomLinkData", roomLinkData);
+
     if (fetchScene && roomLinkData && this.portal.socket) {
       this.excalidrawAPI.resetScene();
 
